@@ -51,7 +51,7 @@ class Register extends Component {
                         }
                     })
             } else {
-                alert("Password must be at least 6 letters, must contain numbers and letters");    
+                alert("Password must be at least 6 letters, must contain numbers and letters");
             }
         } else {
             alert("Invalid email format");
