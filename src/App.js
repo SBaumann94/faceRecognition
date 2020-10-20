@@ -87,8 +87,8 @@ class App extends Component {
       })
     })
       .then(response => response.json())
-      .then(res => {
-        if (res) {
+      .then(response => {
+        if (response) {
           fetch('https://radiant-harbor-60454.herokuapp.com:3000/image', {
             method: 'put',
             headers: { 'Content-Type': 'application/json' },
@@ -96,14 +96,14 @@ class App extends Component {
               id: this.state.user.id
             })
           })
-            .then(response => response.json())
+            .then(res => res.json())
             .then(count => {
+              console.log(count)
               this.setState(Object.assign(this.state.user, { entries: count }))
             })
-            .catch(console.log)
+            .catch(console.log);
+          this.displayFaceBox(this.calculateFaceLocation(response))
         }
-        console.log(res)
-        this.displayFaceBox(this.calculateFaceLocation(res))
       })
       .catch(err => console.log(err));
   }
