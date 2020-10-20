@@ -89,14 +89,14 @@ class App extends Component {
       .then(response => response.json())
       .then(response => {
         if (response) {
-          fetch('https://radiant-harbor-60454.herokuapp.com:3000/image', {
+          fetch('https://radiant-harbor-60454.herokuapp.com/image', {
             method: 'put',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               id: this.state.user.id
             })
           })
-            .then(res => res.json())
+            .then(response => response.json())
             .then(count => {
               console.log(count)
               this.setState(Object.assign(this.state.user, { entries: count }))
