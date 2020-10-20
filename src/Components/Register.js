@@ -42,16 +42,18 @@ class Register extends Component {
                 })
                     .then(response => response.json())
                     .then(user => {
-                        if (user.res.id) {
-                            this.props.loadUser(user.res);
+                        if (user.id) {
+                            this.props.loadUser(user);
                             this.props.onRouteChange('home');
+                            
+                            console.log(user)
                         } else {
                             console.log(user)
                             alert(user);
                         }
                     })
             } else {
-                alert("Password must be at least 6 letters, must contain numbers and letters");
+                alert("Password must be at least 6 letters, must contain numbers and letters");    
             }
         } else {
             alert("Invalid email format");
